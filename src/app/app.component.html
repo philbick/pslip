@@ -1,0 +1,38 @@
+  <!-- <div *ngIf="!firstName; else formInfo">   -->
+  <form [formGroup]="rForm" (ngSubmit)="AddPost(rForm.value)">
+    <div class="form-container">
+    <div class="row columns">
+      <h1>Payment Slip Calculator</h1>
+
+        <input type="text" placeholder="First Name" formControlName="firstName">
+        <div class="alert" *ngIf="!rForm.controls['firstName'].valid && rForm.controls['firstName'].touched">{{ titleAlert }}</div>
+
+        <input type="text" placeholder="Last Name" formControlName="lastName">
+        <div class="alert" *ngIf="!rForm.controls['lastName'].valid && rForm.controls['lastName'].touched">{{ titleAlert }}</div>
+
+        <input type="text" placeholder="Annual Salary" formControlName="annualSalary">
+        <div class="alert" *ngIf="!rForm.controls['annualSalary'].valid && rForm.controls['annualSalary'].touched">{{ titleAlertSalary }}</div>
+
+        <input type="text" placeholder="Super Rate" formControlName="superRate">
+        <div class="alert" *ngIf="!rForm.controls['superRate'].valid && rForm.controls['superRate'].touched">{{ titleAlertSuper }}</div>
+
+        <input type="text" placeholder="Payment Start Date" formControlName="paymentStartDate">
+        <div class="alert" *ngIf="!rForm.controls['paymentStartDate'].valid && rForm.controls['paymentStartDate'].touched">{{ titleAlert }}</div>
+
+      <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
+  <!-- </div>   -->
+  
+<!-- <ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+      <h1>{{ firstName }} {{ lastName }} </h1>
+
+      <p>
+        {{ annualSalary }}
+        {{ superRate }}
+        {{ paymentStartDate }}
+
+      </p>
+    </div>
+  </div>
+</ng-template>  -->
